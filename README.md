@@ -6,9 +6,9 @@ Meta-repository for airflow-laminar tools
 [![codecov](https://codecov.io/gh/airflow-laminar/airflow-laminar/branch/main/graph/badge.svg)](https://codecov.io/gh/airflow-laminar/airflow-laminar)
 [![License](https://img.shields.io/github/license/airflow-laminar/airflow-laminar)](https://github.com/airflow-laminar/airflow-laminar)
 [![PyPI](https://img.shields.io/pypi/v/airflow-laminar.svg)](https://pypi.python.org/pypi/airflow-laminar)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/airflow-laminar/airflow-laminar/main?urlpath=lab)
 
 ## Overview
+This library depends on the airflow-laminar toolchain, and reexports some commonly used classes and functions.
 
 
 > [!NOTE]
