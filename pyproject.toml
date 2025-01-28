@@ -56,7 +56,7 @@ Repository = "https://github.com/airflow-laminar/airflow-laminar"
 Homepage = "https://github.com/airflow-laminar/airflow-laminar"
 
 [tool.bumpversion]
-current_version = "1.0.1"
+current_version = "1.1.0"
 commit = true
 tag = true
 
