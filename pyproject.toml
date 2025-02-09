@@ -33,7 +33,7 @@ dependencies = [
   "airflow-config>=1,<1.1",
   "airflow-ha>=1.1,<1.2",
   "airflow-priority>=1,<1.1",
-  "airflow-supervisor>=1.1,<1.2",
+  "airflow-supervisor>=1.1.1,<1.2",
 ]
 
 [project.optional-dependencies]
