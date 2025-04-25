@@ -8,7 +8,7 @@ authors = [{name = "the airflow-laminar authors", email = "t.paine154@gmail.com"
 description = "Meta-repository for airflow-laminar tools"
 readme = "README.md"
 license = { text = "Apache-2.0" }
-version = "1.8.2"
+version = "1.9.0"
 requires-python = ">=3.9"
 keywords = [
     "airflow",
@@ -60,7 +60,7 @@ Repository = "https://github.com/airflow-laminar/airflow-laminar"
 Homepage = "https://github.com/airflow-laminar/airflow-laminar"
 
 [tool.bumpversion]
-current_version = "1.8.2"
+current_version = "1.9.0"
 commit = true
 tag = true
 
