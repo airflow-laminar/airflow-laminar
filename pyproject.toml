@@ -111,7 +111,6 @@ packages = ["airflow_laminar"]
 
 [tool.pytest.ini_options]
 addopts = ["-vvv", "--junitxml=junit.xml"]
-asyncio_mode = "strict"
 testpaths = "airflow_laminar/tests"
 
 [tool.ruff]
