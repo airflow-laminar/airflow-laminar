@@ -2,7 +2,7 @@
 
 Meta-repository for airflow-laminar tools
 
-[![Build Status](https://github.com/airflow-laminar/airflow-laminar/actions/workflows/build.yml/badge.svg?branch=main&event=push)](https://github.com/airflow-laminar/airflow-laminar/actions/workflows/build.yml)
+[![Build Status](https://github.com/airflow-laminar/airflow-laminar/actions/workflows/build.yaml/badge.svg?branch=main&event=push)](https://github.com/airflow-laminar/airflow-laminar/actions/workflows/build.yaml)
 [![codecov](https://codecov.io/gh/airflow-laminar/airflow-laminar/branch/main/graph/badge.svg)](https://codecov.io/gh/airflow-laminar/airflow-laminar)
 [![License](https://img.shields.io/github/license/airflow-laminar/airflow-laminar)](https://github.com/airflow-laminar/airflow-laminar)
 [![PyPI](https://img.shields.io/pypi/v/airflow-laminar.svg)](https://pypi.python.org/pypi/airflow-laminar)
