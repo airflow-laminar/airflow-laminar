@@ -8,8 +8,8 @@ Meta-repository for airflow-laminar tools
 [![PyPI](https://img.shields.io/pypi/v/airflow-laminar.svg)](https://pypi.python.org/pypi/airflow-laminar)
 
 ## Overview
-This library depends on the airflow-laminar toolchain, and reexports some commonly used classes and functions.
 
+This library depends on the airflow-laminar toolchain, and reexports some commonly used classes and functions.
 
 > [!NOTE]
 > This library was generated using [copier](https://copier.readthedocs.io/en/stable/) from the [Base Python Project Template repository](https://github.com/python-project-templates/base).
