@@ -139,10 +139,13 @@ js/dist
 js/lib
 js/node_modules
 js/*.tgz
+airflow_laminar/extension
 
 # Jupyter
 .ipynb_checkpoints
 .autoversion
+!airflow_laminar/extension/airflow_laminar.json
+!airflow_laminar/extension/install.json
 airflow_laminar/nbextension
 airflow_laminar/labextension
 
