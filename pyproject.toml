@@ -30,11 +30,11 @@ classifiers = [
 
 dependencies = [
   "airflow-balancer>=0.7.6,<0.8",
-  "airflow-common-operators>=0.7.4,<0.8",
+  "airflow-common-operators>=0.7.5,<0.8",
   "airflow-config>=1.10.10,<1.11",
   "airflow-ha>=1.6.1,<1.7",
   "airflow-priority>=1.6.1,<1.7",
-  "airflow-pydantic>=1.5.1,<1.6",
+  "airflow-pydantic>=1.5.3,<1.6",
   "airflow-supervisor>=1.9.4,<1.10",
   "supervisor-pydantic>=1.3,<1.4",
 ]
