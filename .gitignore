@@ -146,6 +146,7 @@ airflow_laminar/extension
 # Jupyter
 .ipynb_checkpoints
 .autoversion
+Untitled*.ipynb
 !airflow_laminar/extension/airflow_laminar.json
 !airflow_laminar/extension/install.json
 airflow_laminar/nbextension
