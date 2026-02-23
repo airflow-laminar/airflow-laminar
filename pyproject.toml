@@ -12,7 +12,7 @@ authors = [
 description = "Meta-repository for airflow-laminar tools"
 readme = "README.md"
 license = { text = "Apache-2.0" }
-version = "1.16.4"
+version = "1.16.5"
 requires-python = ">=3.11"
 keywords = [
     "airflow",
@@ -67,7 +67,7 @@ Repository = "https://github.com/airflow-laminar/airflow-laminar"
 Homepage = "https://github.com/airflow-laminar/airflow-laminar"
 
 [tool.bumpversion]
-current_version = "1.16.4"
+current_version = "1.16.5"
 commit = true
 tag = true
 commit_args = "-s"
