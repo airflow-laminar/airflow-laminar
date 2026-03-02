@@ -87,6 +87,7 @@ branch = true
 omit = [
     "airflow_laminar/tests/integration/",
 ]
+
 [tool.coverage.report]
 exclude_also = [
     "raise NotImplementedError",
