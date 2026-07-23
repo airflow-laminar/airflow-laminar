@@ -1,4 +1,4 @@
-from airflow_laminar import *  # noqa
+from airflow_laminar import *
 
 
 def test_all():
