@@ -43,6 +43,12 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+nomad = [
+    "airflow-nomad>=0.2,<0.3",
+]
+cron = [
+    "airflow-cron>=0.1.1,<0.2",
+]
 develop = [
     "build",
     "bump-my-version",
@@ -50,6 +56,7 @@ develop = [
     "codespell",
     "hatchling",
     "mdformat",
+    "mdformat-frontmatter",
     "mdformat-tables>=1",
     "pytest",
     "pytest-cov",
@@ -153,5 +160,5 @@ section-order = [
 [tool.yardang]
 title = "airflow-laminar"
 root = "README.md"
-pages = []
+pages = ["docs/src/tutorial.md", "docs/src/how-to.md", "docs/src/reference.md", "docs/src/explanation.md"]
 use-autoapi = false
