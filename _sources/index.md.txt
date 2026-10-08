@@ -30,13 +30,9 @@ A compatible set of packages for configuring Airflow DAGs, selecting workers, su
 pip install airflow-laminar
 ```
 
-The base package installs the shared models, configuration loader, common tasks, Balancer, HA, Priority, and Supervisor integration. Nomad and Cron are optional:
+The base package installs the shared models, configuration loader, common tasks, Balancer, HA, Priority, Supervisor, Nomad, and Cron integration.
 
 ```bash
-pip install 'airflow-laminar[nomad]'
-pip install 'airflow-laminar[cron]'
-pip install 'airflow-laminar[nomad,cron]'
-```
 
 Install the appropriate Airflow/provider extra from a component package when creating an Airflow environment. See [installation and compatibility](docs/src/reference.md).
 
@@ -46,3 +42,4 @@ Install the appropriate Airflow/provider extra from a component package when cre
 - [Explanation: configuration, execution, logs, and alerts](docs/src/explanation.md)
 
 [Documentation](https://airflow-laminar.github.io/airflow-laminar/) · [Source](https://github.com/airflow-laminar/airflow-laminar) · [Issues](https://github.com/airflow-laminar/airflow-laminar/issues)
+```

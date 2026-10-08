@@ -200,8 +200,10 @@
   <ul>
 <li class="toctree-l1"><a class="reference internal" href="docs/src/tutorial.html">Generate a DAG from YAML</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docs/src/how-to.html">How-to guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/src/reference.html">Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/src/explanation.html">How the packages fit together</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/src/reference.html">myst: heading_anchors: 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/src/reference.html#reference">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/src/explanation.html">myst: heading_anchors: 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/src/explanation.html#how-the-packages-fit-together">How the packages fit together</a></li>
 </ul>
 
 </div>
@@ -252,20 +254,17 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>airflow-laminar
 </pre></div>
 </div>
-<p>The base package installs the shared models, configuration loader, common tasks, Balancer, HA, Priority, and Supervisor integration. Nomad and Cron are optional:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">'airflow-laminar[nomad]'</span>
-pip<span class="w"> </span>install<span class="w"> </span><span class="s1">'airflow-laminar[cron]'</span>
-pip<span class="w"> </span>install<span class="w"> </span><span class="s1">'airflow-laminar[nomad,cron]'</span>
+<p>The base package installs the shared models, configuration loader, common tasks, Balancer, HA, Priority, Supervisor, Nomad, and Cron integration.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Install<span class="w"> </span>the<span class="w"> </span>appropriate<span class="w"> </span>Airflow/provider<span class="w"> </span>extra<span class="w"> </span>from<span class="w"> </span>a<span class="w"> </span>component<span class="w"> </span>package<span class="w"> </span>when<span class="w"> </span>creating<span class="w"> </span>an<span class="w"> </span>Airflow<span class="w"> </span>environment.<span class="w"> </span>See<span class="w"> </span><span class="o">[</span>installation<span class="w"> </span>and<span class="w"> </span>compatibility<span class="o">](</span>docs/src/reference.md<span class="o">)</span>.
+
+-<span class="w"> </span><span class="o">[</span>Tutorial:<span class="w"> </span>generate<span class="w"> </span>a<span class="w"> </span>DAG<span class="w"> </span>from<span class="w"> </span>YAML<span class="o">](</span>docs/src/tutorial.md<span class="o">)</span>
+-<span class="w"> </span><span class="o">[</span>How-to<span class="w"> </span>guides:<span class="w"> </span>install,<span class="w"> </span>generate<span class="w"> </span>DAGs,<span class="w"> </span>and<span class="w"> </span>convert<span class="w"> </span>cron<span class="w"> </span>jobs<span class="o">](</span>docs/src/how-to.md<span class="o">)</span>
+-<span class="w"> </span><span class="o">[</span>Reference:<span class="w"> </span>package<span class="w"> </span>roles,<span class="w"> </span>dependency<span class="w"> </span>bounds,<span class="w"> </span>and<span class="w"> </span>runtime<span class="w"> </span>requirements<span class="o">](</span>docs/src/reference.md<span class="o">)</span>
+-<span class="w"> </span><span class="o">[</span>Explanation:<span class="w"> </span>configuration,<span class="w"> </span>execution,<span class="w"> </span>logs,<span class="w"> </span>and<span class="w"> </span>alerts<span class="o">](</span>docs/src/explanation.md<span class="o">)</span>
+
+<span class="o">[</span>Documentation<span class="o">](</span>https://airflow-laminar.github.io/airflow-laminar/<span class="o">)</span><span class="w"> </span>·<span class="w"> </span><span class="o">[</span>Source<span class="o">](</span>https://github.com/airflow-laminar/airflow-laminar<span class="o">)</span><span class="w"> </span>·<span class="w"> </span><span class="o">[</span>Issues<span class="o">](</span>https://github.com/airflow-laminar/airflow-laminar/issues<span class="o">)</span>
 </pre></div>
 </div>
-<p>Install the appropriate Airflow/provider extra from a component package when creating an Airflow environment. See <a class="reference internal" href="docs/src/reference.html"><span class="std std-doc">installation and compatibility</span></a>.</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="docs/src/tutorial.html"><span class="std std-doc">Tutorial: generate a DAG from YAML</span></a></p></li>
-<li><p><a class="reference internal" href="docs/src/how-to.html"><span class="std std-doc">How-to guides: install, generate DAGs, and convert cron jobs</span></a></p></li>
-<li><p><a class="reference internal" href="docs/src/reference.html"><span class="std std-doc">Reference: package roles, dependency bounds, and runtime requirements</span></a></p></li>
-<li><p><a class="reference internal" href="docs/src/explanation.html"><span class="std std-doc">Explanation: configuration, execution, logs, and alerts</span></a></p></li>
-</ul>
-<p><a class="reference external" href="https://airflow-laminar.github.io/airflow-laminar/">Documentation</a> · <a class="reference external" href="https://github.com/airflow-laminar/airflow-laminar">Source</a> · <a class="reference external" href="https://github.com/airflow-laminar/airflow-laminar/issues">Issues</a></p>
 </section>
 
         </article>

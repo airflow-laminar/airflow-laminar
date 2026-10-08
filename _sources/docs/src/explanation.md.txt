@@ -1,7 +1,6 @@
----
-myst:
-  heading_anchors: 3
----
+______________________________________________________________________
+
+## myst: heading_anchors: 3
 
 # How the packages fit together
 
