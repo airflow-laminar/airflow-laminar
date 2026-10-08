@@ -1,9 +1,7 @@
 import ast
 
-import pytest
+import airflow_cron as cron
 from airflow_config import Configuration
-
-cron = pytest.importorskip("airflow_cron")
 
 
 def test_cron_configuration_generates_airflow_task(tmp_path):

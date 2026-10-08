@@ -1,6 +1,6 @@
 # Generate a DAG from YAML
 
-Create a configuration file, generate an Airflow 3 DAG, and inspect its task. This exercise needs Python 3.11 or later. It does not run a scheduler or require Supervisor or Nomad services.
+Generate an Airflow 3 DAG from a YAML file and inspect its task. Use Python 3.11 or later; the exercise runs locally without a scheduler or managed services.
 
 ## Install the packages
 
@@ -78,4 +78,4 @@ hello
 echo laminar-ready
 ```
 
-Place `generated/hello.py` in the DAG directory of an initialized Airflow deployment when you are ready to schedule or trigger it. Continue with the [how-to guides](how-to.md) for Airflow 2 generation, direct Python DAGs, and cron conversion.
+To run the DAG, place `generated/hello.py` in an initialized Airflow deployment’s DAG directory. Continue with the [how-to guides](how-to.md) for Airflow 2 generation, direct Python DAGs, and cron conversion.
