@@ -3,10 +3,10 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html"><link rel="prev" title="myst: heading_anchors: 3" href="reference.html">
+<link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html"><link rel="prev" title="Reference" href="reference.html">
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
-        <title>myst: heading_anchors: 3 - airflow-laminar v1.18.1</title>
+        <title>How the packages fit together - airflow-laminar v1.18.1</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
@@ -179,7 +179,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
       </label>
     </div>
@@ -200,10 +200,8 @@
   <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Generate a DAG from YAML</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how-to.html">How-to guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">myst: heading_anchors: 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html#reference">Reference</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">myst: heading_anchors: 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#how-the-packages-fit-together">How the packages fit together</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">How the packages fit together</a></li>
 </ul>
 
 </div>
@@ -237,38 +235,32 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <hr class="docutils" />
-<section id="myst-heading-anchors-3">
-<h1>myst: heading_anchors: 3<a class="headerlink" href="#myst-heading-anchors-3" title="Link to this heading">¶</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="how-the-packages-fit-together">
+          <section class="tex2jax_ignore mathjax_ignore" id="how-the-packages-fit-together">
 <h1>How the packages fit together<a class="headerlink" href="#how-the-packages-fit-together" title="Link to this heading">¶</a></h1>
 <section id="configuration-and-execution">
 <h2>Configuration and execution<a class="headerlink" href="#configuration-and-execution" title="Link to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">airflow-pydantic</span></code> describes DAGs, tasks, hosts, and runtime configuration as models. <code class="docutils literal notranslate"><span class="pre">airflow-config</span></code> composes those models from YAML and can generate Python DAG files or instantiate DAGs while Airflow parses configuration.</p>
-<p>The execution boundary depends on the integration. A generated Bash/Cron task executes a command on the Airflow worker. Supervisor manages processes on a local or SSH host. Nomad schedules workloads through its own client agents, while Airflow submits jobs and monitors their allocations.</p>
-<p>This distinction determines setup and failure ownership. Generating a Nomad DAG can validate its configuration without a Nomad service; executing it requires a reachable agent and a usable task driver. Cron conversion needs no independent cron daemon because the generated schedule belongs to Airflow.</p>
+<p>Bash and Cron commands run on Airflow workers. Supervisor manages processes on a local or SSH host. Nomad schedules workloads through its own client agents, while Airflow submits jobs and monitors their allocations.</p>
 </section>
 <section id="host-choice-and-lifecycle">
 <h2>Host choice and lifecycle<a class="headerlink" href="#host-choice-and-lifecycle" title="Link to this heading">¶</a></h2>
-<p>Balancer selects among configured candidates and gives tasks SSH hooks and pool identifiers. Its pool-manager task reconciles declared concurrency limits. HA adds repeated execution and stop conditions. Neither host labels nor a declared port establish live resource availability; a workload’s runtime owns actual processes and sockets.</p>
-<p>The meta-package groups compatible dependency ranges so these pieces can be installed together. Nomad and Cron extras add their integrations when selected. External service installation remains a deployment decision.</p>
+<p>Balancer selects configured hosts and supplies SSH hooks and pool names. Its pool-manager task reconciles declared concurrency limits. HA adds repeated execution and stop conditions. Host labels and port declarations describe configuration. The workload runtime controls the processes and sockets.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">airflow-laminar</span></code> installs the component packages with compatible dependency bounds. Set up the external services needed by the workloads you choose to run.</p>
 </section>
 <section id="task-events-and-dag-run-alerts">
 <h2>Task events and DAG-run alerts<a class="headerlink" href="#task-events-and-dag-run-alerts" title="Link to this heading">¶</a></h2>
 <p>A task callback observes one task instance’s success or failure. Priority listens to the enclosing DAG run’s running, success, and failure events. A failed task attempt that later succeeds does not necessarily produce a failed DAG run.</p>
-<p>The distinction matters for HA and watchdogs: retries or planned restarts can be part of normal lifecycle behavior. The operator and DAG failure policy determine whether the enclosing run fails. Configure task callbacks when the individual event matters, and Priority when the DAG-run outcome is the alerting boundary.</p>
+<p>With HA and watchdogs, retries or planned restarts can be normal. The operator and DAG failure policy determine whether the run fails. Use task callbacks for individual task events and Priority for DAG-run outcomes.</p>
 </section>
 <section id="logs-and-validation">
 <h2>Logs and validation<a class="headerlink" href="#logs-and-validation" title="Link to this heading">¶</a></h2>
-<p>Cron commands use Airflow’s Bash task logging. Supervisor and Nomad integrations forward configured workload output through their task loggers. An Airflow task log and a backend’s full historical output can differ because forwarding has a scope, interval, and lifecycle.</p>
-<p>Model, generation, and mocked receiver tests establish the configuration and API contracts. Live validation checks whether a failed workload produces the intended task state, output, callback, and DAG-run event through the running scheduler and task processes. Cron can be checked without an external service; Supervisor and Nomad need their respective runtimes.</p>
-<p>The component guides provide the details for log-forwarding settings, watchdog failure handling, and alert delivery.</p>
+<p>Cron commands use Airflow’s Bash task logging. Supervisor and Nomad integrations forward configured workload output through their task loggers. Forwarded logs cover the output selected by the integration during the task’s lifetime. The backend may retain additional history.</p>
+<p>Model and generation tests check configuration and generated DAGs. Mocked receiver tests check alert routing. Live validation checks whether a failed workload produces the intended task state, output, callback, and DAG-run event through the running scheduler and task processes.</p>
 </section>
 </section>
 
@@ -285,7 +277,7 @@
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">myst: heading_anchors: 3</div>
+                <div class="title">Reference</div>
                 
               </div>
             </a>
@@ -307,8 +299,30 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">How the packages fit together</a><ul>
+<li><a class="reference internal" href="#configuration-and-execution">Configuration and execution</a></li>
+<li><a class="reference internal" href="#host-choice-and-lifecycle">Host choice and lifecycle</a></li>
+<li><a class="reference internal" href="#task-events-and-dag-run-alerts">Task events and DAG-run alerts</a></li>
+<li><a class="reference internal" href="#logs-and-validation">Logs and validation</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

@@ -200,10 +200,8 @@
   <ul class="current">
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Generate a DAG from YAML</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how-to.html">How-to guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">myst: heading_anchors: 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html#reference">Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="explanation.html">myst: heading_anchors: 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="explanation.html#how-the-packages-fit-together">How the packages fit together</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="explanation.html">How the packages fit together</a></li>
 </ul>
 
 </div>
@@ -244,7 +242,7 @@
         <article role="main" id="furo-main-content">
           <section class="tex2jax_ignore mathjax_ignore" id="generate-a-dag-from-yaml">
 <h1>Generate a DAG from YAML<a class="headerlink" href="#generate-a-dag-from-yaml" title="Link to this heading">¶</a></h1>
-<p>Create a configuration file, generate an Airflow 3 DAG, and inspect its task. This exercise needs Python 3.11 or later. It does not run a scheduler or require Supervisor or Nomad services.</p>
+<p>Generate an Airflow 3 DAG from a YAML file and inspect its task. Use Python 3.11 or later; the exercise runs locally without a scheduler or managed services.</p>
 <section id="install-the-packages">
 <h2>Install the packages<a class="headerlink" href="#install-the-packages" title="Link to this heading">¶</a></h2>
 <p>In an empty directory:</p>
@@ -308,7 +306,7 @@ pip<span class="w"> </span>install<span class="w"> </span>airflow-laminar<span c
 echo laminar-ready
 </pre></div>
 </div>
-<p>Place <code class="docutils literal notranslate"><span class="pre">generated/hello.py</span></code> in the DAG directory of an initialized Airflow deployment when you are ready to schedule or trigger it. Continue with the <a class="reference internal" href="how-to.html"><span class="std std-doc">how-to guides</span></a> for Airflow 2 generation, direct Python DAGs, and cron conversion.</p>
+<p>To run the DAG, place <code class="docutils literal notranslate"><span class="pre">generated/hello.py</span></code> in an initialized Airflow deployment’s DAG directory. Continue with the <a class="reference internal" href="how-to.html"><span class="std std-doc">how-to guides</span></a> for Airflow 2 generation, direct Python DAGs, and cron conversion.</p>
 </section>
 </section>
 

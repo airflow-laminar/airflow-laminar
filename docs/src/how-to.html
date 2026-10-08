@@ -3,7 +3,7 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html"><link rel="next" title="myst: heading_anchors: 3" href="reference.html"><link rel="prev" title="Generate a DAG from YAML" href="tutorial.html">
+<link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html"><link rel="next" title="Reference" href="reference.html"><link rel="prev" title="Generate a DAG from YAML" href="tutorial.html">
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
         <title>How-to guides - airflow-laminar v1.18.1</title>
@@ -200,10 +200,8 @@
   <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Generate a DAG from YAML</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">How-to guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">myst: heading_anchors: 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html#reference">Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="explanation.html">myst: heading_anchors: 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="explanation.html#how-the-packages-fit-together">How the packages fit together</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="explanation.html">How the packages fit together</a></li>
 </ul>
 
 </div>
@@ -258,17 +256,11 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>airflow-laminar<span class="w"> </span><span class="s1">'airflow-balancer[airflow3]'</span>
 </pre></div>
 </div>
-<p>These component extras install Airflow and the SSH/standard providers. Install into the same environment as the DAG parser and task processes.</p>
-<p>To add Nomad or Cron:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">'airflow-laminar[nomad]'</span>
-pip<span class="w"> </span>install<span class="w"> </span><span class="s1">'airflow-laminar[cron]'</span>
-</pre></div>
-</div>
-<p>The extras install the Python integrations. Supply the required managed services and command-line tools described in the <a class="reference internal" href="reference.html#runtime-requirements"><span class="std std-ref">runtime reference</span></a>.</p>
+<p>The Balancer extras install Airflow and the SSH and standard providers. Install the packages in the environment used by the DAG parser and task processes. Configure the services and command-line tools required by your workloads; see the <a class="reference internal" href="reference.html#runtime-requirements"><span class="std std-ref">runtime reference</span></a>.</p>
 </section>
 <section id="how-to-generate-dags-for-an-airflow-version">
 <h2>How to generate DAGs for an Airflow version<a class="headerlink" href="#how-to-generate-dags-for-an-airflow-version" title="Link to this heading">¶</a></h2>
-<p>Use a configuration file with the structure in the <a class="reference internal" href="tutorial.html"><span class="std std-doc">tutorial</span></a>, then select the generated import style:</p>
+<p>Use a configuration file with the structure in the <a class="reference internal" href="tutorial.html"><span class="std std-doc">tutorial</span></a>, then specify the target Airflow version:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">airflow_config</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_config</span>
 
 <span class="n">config</span> <span class="o">=</span> <span class="n">load_config</span><span class="p">(</span><span class="s2">"config"</span><span class="p">,</span> <span class="s2">"hello"</span><span class="p">)</span>
@@ -301,11 +293,11 @@ pip<span class="w"> </span>install<span class="w"> </span><span class="s1">'airf
     <span class="n">BashOperator</span><span class="p">(</span><span class="n">task_id</span><span class="o">=</span><span class="s2">"greet"</span><span class="p">,</span> <span class="n">bash_command</span><span class="o">=</span><span class="s2">"echo laminar-ready"</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Use component imports for other operators and models. <code class="docutils literal notranslate"><span class="pre">airflow-pydantic</span></code> supplies the compatibility imports used here; the <a class="reference internal" href="reference.html#components"><span class="std std-ref">component reference</span></a> identifies each package’s responsibilities.</p>
+<p>Import other operators and models from their component packages. The <code class="docutils literal notranslate"><span class="pre">airflow_pydantic.airflow</span></code> imports work with Airflow 2 and 3; see the <a class="reference internal" href="reference.html#components"><span class="std std-ref">component reference</span></a>.</p>
 </section>
 <section id="how-to-convert-a-cron-job-into-an-airflow-owned-schedule">
 <h2>How to convert a cron job into an Airflow-owned schedule<a class="headerlink" href="#how-to-convert-a-cron-job-into-an-airflow-owned-schedule" title="Link to this heading">¶</a></h2>
-<p>Install <code class="docutils literal notranslate"><span class="pre">airflow-laminar[cron]</span></code> in the Airflow environment. Save <code class="docutils literal notranslate"><span class="pre">cron.yaml</span></code>:</p>
+<p>Save <code class="docutils literal notranslate"><span class="pre">cron.yaml</span></code>:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">job</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">heartbeat</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">schedule</span><span class="p">:</span><span class="w"> </span><span class="s">'*/5</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*'</span>
@@ -324,7 +316,7 @@ pip<span class="w"> </span>install<span class="w"> </span><span class="s1">'airf
 <span class="n">config</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="s2">"generated"</span><span class="p">,</span> <span class="n">airflow_major_version</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The generated <code class="docutils literal notranslate"><span class="pre">heartbeat.py</span></code> has a <code class="docutils literal notranslate"><span class="pre">run</span></code> task. Airflow owns its five-minute schedule and task logs; the example does not install a host crontab. See the <a class="reference external" href="https://airflow-laminar.github.io/airflow-cron/docs/src/how-to.html">Cron guides</a> for environment settings, callbacks, and exit-code handling.</p>
+<p>The generated <code class="docutils literal notranslate"><span class="pre">heartbeat.py</span></code> has a <code class="docutils literal notranslate"><span class="pre">run</span></code> task. Airflow schedules it every five minutes and records its command output in the task log. See the <a class="reference external" href="https://airflow-laminar.github.io/airflow-cron/docs/src/how-to.html">Cron guides</a> for environment settings, callbacks, and exit-code handling.</p>
 </section>
 <section id="how-to-choose-an-integration">
 <h2>How to choose an integration<a class="headerlink" href="#how-to-choose-an-integration" title="Link to this heading">¶</a></h2>
@@ -357,7 +349,7 @@ pip<span class="w"> </span>install<span class="w"> </span><span class="s1">'airf
 </tbody>
 </table>
 </div>
-<p>For task-level success/failure hooks, configure callbacks on the task models. For DAG-run alerts, configure Priority and tag the DAG. The <a class="reference internal" href="explanation.html#task-events-and-dag-run-alerts"><span class="std std-ref">explanation</span></a> describes the different event scopes.</p>
+<p>For task success and failure events, configure callbacks on the task models. For DAG-run alerts, configure Priority and tag the DAG. The <a class="reference internal" href="explanation.html#task-events-and-dag-run-alerts"><span class="std std-ref">explanation</span></a> describes the different event scopes.</p>
 </section>
 </section>
 
@@ -371,7 +363,7 @@ pip<span class="w"> </span>install<span class="w"> </span><span class="s1">'airf
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">myst: heading_anchors: 3</div>
+                <div class="title">Reference</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>

@@ -20,20 +20,11 @@ For a new Airflow 3 environment:
 pip install airflow-laminar 'airflow-balancer[airflow3]'
 ```
 
-These component extras install Airflow and the SSH/standard providers. Install into the same environment as the DAG parser and task processes.
-
-To add Nomad or Cron:
-
-```bash
-pip install 'airflow-laminar[nomad]'
-pip install 'airflow-laminar[cron]'
-```
-
-The extras install the Python integrations. Supply the required managed services and command-line tools described in the [runtime reference](reference.md#runtime-requirements).
+The Balancer extras install Airflow and the SSH and standard providers. Install the packages in the environment used by the DAG parser and task processes. Configure the services and command-line tools required by your workloads; see the [runtime reference](reference.md#runtime-requirements).
 
 ## How to generate DAGs for an Airflow version
 
-Use a configuration file with the structure in the [tutorial](tutorial.md), then select the generated import style:
+Use a configuration file with the structure in the [tutorial](tutorial.md), then specify the target Airflow version:
 
 ```python
 from airflow_config import load_config
@@ -73,11 +64,11 @@ with DAG(
     BashOperator(task_id="greet", bash_command="echo laminar-ready")
 ```
 
-Use component imports for other operators and models. `airflow-pydantic` supplies the compatibility imports used here; the [component reference](reference.md#components) identifies each package's responsibilities.
+Import other operators and models from their component packages. The `airflow_pydantic.airflow` imports work with Airflow 2 and 3; see the [component reference](reference.md#components).
 
 ## How to convert a cron job into an Airflow-owned schedule
 
-Install `airflow-laminar[cron]` in the Airflow environment. Save `cron.yaml`:
+Save `cron.yaml`:
 
 ```yaml
 job:
@@ -100,7 +91,7 @@ config = Configuration(
 config.generate("generated", airflow_major_version=3)
 ```
 
-The generated `heartbeat.py` has a `run` task. Airflow owns its five-minute schedule and task logs; the example does not install a host crontab. See the [Cron guides](https://airflow-laminar.github.io/airflow-cron/docs/src/how-to.html) for environment settings, callbacks, and exit-code handling.
+The generated `heartbeat.py` has a `run` task. Airflow schedules it every five minutes and records its command output in the task log. See the [Cron guides](https://airflow-laminar.github.io/airflow-cron/docs/src/how-to.html) for environment settings, callbacks, and exit-code handling.
 
 ## How to choose an integration
 
@@ -113,4 +104,4 @@ The generated `heartbeat.py` has a `run` task. Airflow owns its five-minute sche
 | Convert cron data to scheduled Airflow tasks                   | [Cron](https://airflow-laminar.github.io/airflow-cron/)             |
 | Route DAG-run events to alerting backends                      | [Priority](https://airflow-laminar.github.io/airflow-priority/)     |
 
-For task-level success/failure hooks, configure callbacks on the task models. For DAG-run alerts, configure Priority and tag the DAG. The [explanation](explanation.md#task-events-and-dag-run-alerts) describes the different event scopes.
+For task success and failure events, configure callbacks on the task models. For DAG-run alerts, configure Priority and tag the DAG. The [explanation](explanation.md#task-events-and-dag-run-alerts) describes the different event scopes.

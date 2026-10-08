@@ -19,7 +19,7 @@ docs/src/explanation.md
 
 # airflow-laminar
 
-A compatible set of packages for configuring Airflow DAGs, selecting workers, supervising workloads, and routing DAG-run alerts. Import models and operators from their owning packages: `airflow_config`, `airflow_pydantic`, `airflow_supervisor`, and the other integrations.
+Packages for configuring Airflow DAGs, selecting workers, managing workloads, and routing DAG-run alerts. Import models and operators from their component packages, such as `airflow_config`, `airflow_pydantic`, and `airflow_supervisor`.
 
 [![Build Status](https://github.com/airflow-laminar/airflow-laminar/actions/workflows/build.yaml/badge.svg?branch=main&event=push)](https://github.com/airflow-laminar/airflow-laminar/actions/workflows/build.yaml)
 [![codecov](https://codecov.io/gh/airflow-laminar/airflow-laminar/branch/main/graph/badge.svg)](https://codecov.io/gh/airflow-laminar/airflow-laminar)
@@ -30,11 +30,9 @@ A compatible set of packages for configuring Airflow DAGs, selecting workers, su
 pip install airflow-laminar
 ```
 
-The base package installs the shared models, configuration loader, common tasks, Balancer, HA, Priority, Supervisor, Nomad, and Cron integration.
+`airflow-laminar` installs the shared models, configuration loader, common tasks, and Balancer, HA, Priority, Supervisor, Nomad, and Cron integrations.
 
-```bash
-
-Install the appropriate Airflow/provider extra from a component package when creating an Airflow environment. See [installation and compatibility](docs/src/reference.md).
+For a new Airflow environment, install a component’s `airflow` or `airflow3` extra to include Airflow and its providers. See [installation and compatibility](docs/src/reference.md).
 
 - [Tutorial: generate a DAG from YAML](docs/src/tutorial.md)
 - [How-to guides: install, generate DAGs, and convert cron jobs](docs/src/how-to.md)
@@ -42,4 +40,3 @@ Install the appropriate Airflow/provider extra from a component package when cre
 - [Explanation: configuration, execution, logs, and alerts](docs/src/explanation.md)
 
 [Documentation](https://airflow-laminar.github.io/airflow-laminar/) · [Source](https://github.com/airflow-laminar/airflow-laminar) · [Issues](https://github.com/airflow-laminar/airflow-laminar/issues)
-```
