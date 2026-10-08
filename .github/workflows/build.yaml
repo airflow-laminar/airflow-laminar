@@ -39,7 +39,7 @@ jobs:
           version: "3.11"
 
       - name: Install dependencies
-        run: uv pip install -e .[develop,nomad,cron]
+        run: make develop
 
       - name: Lint
         run: make lint
