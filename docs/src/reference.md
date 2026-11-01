@@ -36,7 +36,7 @@ The `airflow_laminar` module exposes `__version__`. Import tasks and models from
 | `airflow-nomad`       | `>=0.2.1,<0.3`   |
 | `airflow-priority`    | `>=1.6.3,<1.7`   |
 | `airflow-pydantic`    | `>=1.7.1,<1.8`   |
-| `airflow-supervisor`  | `>=1.11.1,<1.12` |
+| `airflow-supervisor`  | `>=1.12.0,<1.13` |
 | `cron-pydantic`       | `>=0.1.1,<0.2`   |
 | `nomad-pydantic`      | `>=0.2.1,<0.3`   |
 | `supervisor-pydantic` | `>=1.5.2,<1.6`   |
