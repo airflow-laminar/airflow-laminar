@@ -28,15 +28,15 @@ The `airflow_laminar` module exposes `__version__`. Import tasks and models from
 
 | Dependency            | Bound            |
 | --------------------- | ---------------- |
-| `airflow-balancer`    | `>=0.7.12,<0.8`  |
+| `airflow-balancer`    | `>=0.7.13,<0.8`  |
 | `airflow-common`      | `>=0.7.10,<0.8`  |
-| `airflow-config`      | `>=1.12.6,<1.13` |
+| `airflow-config`      | `>=1.13.0,<1.14` |
 | `airflow-cron`        | `>=0.1.2,<0.2`   |
 | `airflow-ha`          | `>=1.6.7,<1.7`   |
 | `airflow-nomad`       | `>=0.2.1,<0.3`   |
 | `airflow-priority`    | `>=1.6.3,<1.7`   |
 | `airflow-pydantic`    | `>=1.7.1,<1.8`   |
-| `airflow-supervisor`  | `>=1.12.0,<1.13` |
+| `airflow-supervisor`  | `>=1.13.0,<1.14` |
 | `cron-pydantic`       | `>=0.1.1,<0.2`   |
 | `nomad-pydantic`      | `>=0.2.1,<0.3`   |
 | `supervisor-pydantic` | `>=1.5.2,<1.6`   |
